@@ -3,22 +3,29 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o --port 4500",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "stubs": "stubby -s 1500 -d stubbs/stubby.json -w",
+    "stubby": "concurrently \"npm start\" \"npm run stubs\""
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
+    "@angular/cdk": "^14.1.1",
     "@angular/common": "^14.1.0",
     "@angular/compiler": "^14.1.0",
     "@angular/core": "^14.1.0",
     "@angular/forms": "^14.1.0",
+    "@angular/material": "^14.1.1",
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@types/lodash": "^4.14.182",
+    "concurrently": "^7.3.0",
     "rxjs": "~7.5.0",
+    "stubby": "^5.1.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
