@@ -117,3 +117,11 @@ body {
     color: red;
     text-align: left;
 }
+
+input, textarea, select {
+    border-radius: 4px;
+    border: 1px solid #d4d4d4;
+    padding: 0px 5px;
+    outline: none;
+    height: 25px;
+}

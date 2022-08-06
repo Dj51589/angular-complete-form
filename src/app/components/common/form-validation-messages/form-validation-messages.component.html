@@ -1,19 +1,19 @@
 <mat-error *ngIf="inputControl.invalid">
     <div *ngIf="inputControl.errors">
         <p *ngIf="inputControl.errors.required">
-            Input value required
+            {{fieldName}} required
         </p>
         <p *ngIf="inputControl.errors.pattern">
-            Invalid Input
+            {{fieldName}} has invalid Input
         </p>
         <p *ngIf="inputControl.errors.email">
-            Invalid Email Input
+            {{fieldName}} has invalid email input
         </p>
-        <p *ngIf="inputControl.errors.min">
-            Minium value is invalid
+        <p *ngIf="inputControl.errors.minlength">
+            {{fieldName}} Minium value is invalid
         </p>
-        <p *ngIf="inputControl.errors.max">
-            Maximun value is invalid
+        <p *ngIf="inputControl.errors.maxlength">
+            {{fieldName}} Maximun value is invalid
         </p>
     </div>
 </mat-error>

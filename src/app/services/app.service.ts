@@ -5,5 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class AppService {
   fullLoader = false;
+  isLoginned = false;
   constructor() { }
+
+  isAuthenticated = () => {
+    return this.isLoginned;
+  }
+
+  setAuthetication = () => {
+    this.isLoginned = true;
+  }
 }

@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class FormValidationMessagesComponent implements OnInit {
   @Input() inputControl: FormControl;
   @Output() parentFun ?= new EventEmitter();
+  @Input() fieldName: string;
   constructor() { }
 
   ngOnInit(): void {

@@ -18,7 +18,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { LandingComponent } from './components/landing/landing.component';
 import { FormValidationMessagesComponent } from './components/common/form-validation-messages/form-validation-messages.component';
+import { LoginComponent } from './components/login/login.component';
+
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     NoPageFoundComponent,
     HeaderComponent,
     LandingComponent,
-    FormValidationMessagesComponent
+    FormValidationMessagesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

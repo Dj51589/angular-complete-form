@@ -1,0 +1,48 @@
+<div class="flex justify-center v-align-c w-100 h-100">
+    <div class="flex flex-column login-container v-align-c">
+        <div class="header-message">
+            Welcome to Emirates NBD
+        </div>
+        <div class="login-fields flex justify-center v-align-c">
+            <form [formGroup]="loginForm" class="form">
+                <div class="flex-container flex-wrap">
+                    <div class="element flex mandatory " [ngClass]="{
+            mandatory: loginForm.controls.userId.validator,
+            inValid: formSubmitted && loginForm.controls.userId.invalid
+          }">
+                        <div class="label">
+                            <label>User ID</label>
+                        </div>
+                        <div class="control flex flex-column">
+                            <input type="text" formControlName="userId" />
+                            <app-form-validation-messages *ngIf="formSubmitted"
+                                [inputControl]="loginForm.controls.userId" [fieldName]="'User Id'">
+                            </app-form-validation-messages>
+                        </div>
+                    </div>
+
+                    <div class="element flex mandatory " [ngClass]="{
+            mandatory: loginForm.controls.pwd.validator,
+            inValid: formSubmitted && loginForm.controls.pwd.invalid
+          }">
+                        <div class="label">
+                            <label>Password</label>
+                        </div>
+                        <div class="control flex flex-column">
+                            <input type="password" formControlName="pwd" />
+                            <app-form-validation-messages *ngIf="formSubmitted" 
+                            [fieldName]="'Password'"
+                            [inputControl]="loginForm.controls.pwd">
+                            </app-form-validation-messages>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="login-action">
+            <button (click)="validateUser();" mat-raised-button color="primary">Login</button>
+            <button (click)="signup();" mat-raised-button >Signup</button>
+        </div>
+    </div>
+</div>

@@ -1,28 +1,46 @@
-nav {
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333333;
-      }
-      
-      li {
-        float: left;
-      }
-      
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 16px;
-        text-decoration: none;
-      }
-      
-      li a:hover {
-        background-color: #111111;
-      }
+.header {
+  padding: 10px 20px;
+  background: linear-gradient(to right,#18297c 0%,#193aa9 100%);
+  color: white;
+  justify-content: center;
+  display: flex;
+  .logo-container {
+    display: flex;
+    vertical-align: middle;
+  }
+  .logo {
+    height: 30px;
+  }
+  &.logined {
+    nav {
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover {
+          background-color: #111111;
+        }
+  }
+  }
 }
+
+
 
 .loading-area {
     position: relative;
@@ -88,8 +106,8 @@ nav {
 
 .route-container {
     position: relative;
-    height: calc(100vh - 52px);
-    max-height: calc(100vh - 52px);
+    height: calc(100vh - 50px);
+    max-height: calc(100vh - 50px);
     overflow: auto;
 }
 

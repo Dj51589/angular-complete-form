@@ -7,30 +7,37 @@
     </div>
     <div class="loading-text">loading...</div>
   </div>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
-          Landing
-        </a>
-      </li>
-      <li>
-        <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">
-          Home
-        </a>
-      </li>
-      <li>
-        <a routerLink="/listing" routerLinkActive="active" ariaCurrentWhenActive="page">
-          Listing
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/details', 5]" routerLinkActive="active" ariaCurrentWhenActive="page">
-          Details
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="header logined" *ngIf="appSvc.isLoginned">
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Landing
+          </a>
+        </li>
+        <li>
+          <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/listing" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Listing
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/details', 5]" routerLinkActive="active" ariaCurrentWhenActive="page">
+            Details
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header" *ngIf="!appSvc.isLoginned">
+    <div class="logo-container">
+      <img class="logo" src="assets/images/emiratesnbd_logo.webp" alt="ENBD" />
+    </div>
+  </div>
   <div class="route-container">
     <router-outlet></router-outlet>
   </div>

@@ -1,0 +1,33 @@
+.login-container {
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    .header-message {
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .login-fields {
+        height: 400px;
+        width: 400px;
+        .element {
+            margin: 20px;
+            height: 60px;
+            .label {
+                min-width: 100px;
+            }
+            input {
+                max-width: 200px;
+                width: 200px;
+            }
+        }
+    }
+    .login-action {
+        button {
+            width: 100px;
+            margin: 0px 10px;
+        }
+    }
+    
+}
