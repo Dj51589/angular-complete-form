@@ -1,0 +1,30 @@
+<div class="flex h-100 statement table-container">
+    <h1 class="text-center">
+        Statements
+    </h1>
+    <table *ngIf="statements && statements.length > 0" class="text-center">
+        <tr>
+            <th>Trans. Date</th>
+            <th>Trans. ID</th>
+            <th>Amount</th>
+            <th>Comment</th>
+        </tr>
+        <tr *ngFor="let statement of statements">
+            <td>
+                {{statement.transDate | date:'yyyy-MM-dd'}}
+            </td>
+            <td>
+                {{statement.transId}}
+            </td>
+            <td>
+                {{statement.amount}}
+            </td>
+            <td>
+                {{statement.comment}}
+            </td>
+        </tr>
+    </table>
+    <div *ngIf="!loader && statements.length === 0" class="flex v-align-c justify-center h-100">
+        <app-no-record-found></app-no-record-found>
+    </div>
+</div>

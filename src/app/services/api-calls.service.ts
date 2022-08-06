@@ -12,7 +12,7 @@ export class ApiCallsService {
     return this.http.get(environment.serverUrl + url);
   }
 
-  post(url: string, payload = {}) {
-    return this.http.post(url, payload);
+  send(url: string, payload = {}) {
+    return this.http.post(environment.serverUrl + url, payload);
   }
 }

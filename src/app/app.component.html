@@ -1,5 +1,5 @@
-<div [ngClass]="{'loading-area': appSvc.fullLoader}">
-  <div *ngIf="appSvc.fullLoader" class="loader-box">
+<div [ngClass]="{'loading-area': showLoader}">
+  <div *ngIf="showLoader" class="loader-box">
     <div>
       <svg class="spinner" viewBox="0 0 50 50">
         <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -8,30 +8,23 @@
     <div class="loading-text">loading...</div>
   </div>
   <div class="header logined" *ngIf="appSvc.isLoginned">
-    <nav>
-      <ul>
-        <li>
-          <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
-            Landing
-          </a>
-        </li>
-        <li>
-          <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">
-            Home
-          </a>
-        </li>
-        <li>
-          <a routerLink="/listing" routerLinkActive="active" ariaCurrentWhenActive="page">
-            Listing
-          </a>
-        </li>
-        <li>
-          <a [routerLink]="['/details', 5]" routerLinkActive="active" ariaCurrentWhenActive="page">
-            Details
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div class="navigation">
+      <span class="route-item cursor-pointer" routerLink="/home" 
+        routerLinkActive="active" 
+      ariaCurrentWhenActive="page">
+        Home
+      </span>
+      <span class="route-item cursor-pointer" routerLink="/transferfunds" routerLinkActive="active" ariaCurrentWhenActive="page">
+        Transfer Fund
+      </span>
+      <span class="route-item cursor-pointer" routerLink="/statements" routerLinkActive="active" ariaCurrentWhenActive="page">
+        Statements
+      </span>
+    </div>
+    <div class="flex userinfo v-align-c">
+      {{appSvc.userInfo.user}}
+      <img class="cursor-pointer" src="assets/images/logout.png" (click)="logout();" />
+    </div>
   </div>
   <div class="header" *ngIf="!appSvc.isLoginned">
     <div class="logo-container">

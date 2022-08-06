@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppService } from './services/app.service';
 import { CookieService } from './services/cookie.service';
 
@@ -8,19 +9,36 @@ import { CookieService } from './services/cookie.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-form-stubby-route-validation';
-  constructor(public appSvc: AppService, private cs: CookieService) {
+  title = '';
+  userInfo = {};
+  showLoader = false;
+  constructor(public appSvc: AppService, private cs: CookieService,
+    private router: Router, private chg: ChangeDetectorRef
+  ) {
+    this.appSvc.showLoader.subscribe((state: boolean) => {
+      this.showLoader = state;
+      this.chg.detectChanges();
+    })
     this.getUserDetail();
   }
 
   getUserDetail = () => {
-    let userDetail = this.cs.getCookie('authentication');
-    if (userDetail) {
-      userDetail = JSON.parse(this.cs.getCookie('authentication'));;
-      console.log(userDetail);
-      if (userDetail) {
-        this.appSvc.isLoginned = true;
-      }
-    } 
+    let userDetail = window.sessionStorage.getItem('userInfo');
+    const userToken = this.cs.getCookie('authentication');
+    if (userToken) {
+      this.appSvc.setAuthetication({
+        token: userToken,
+        user: userDetail || ''
+      });
+      this.userInfo = {
+        user: userDetail
+      };
+    } else {
+      this.router.navigate(['login']);
+    }
+  }
+
+  logout = () => {
+    this.appSvc.logout();
   }
 }

@@ -1,0 +1,58 @@
+<div class="transfer-component h-100" [ngClass]="{'section-loader': loader}">
+    <form *ngIf="beneficiaryList && beneficiaryList.length > 0" [formGroup]="accountTransferForm">
+        <mat-card class="transfer-details">
+            <mat-card-title>Transfer between accounts</mat-card-title>
+            <mat-card-content>
+                <div class="flex-col pd-tb-24">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Origin Account</mat-label>
+                        <input formControlName="originAccount" matInput readonly />
+                    </mat-form-field>
+                    <app-form-validation-messages *ngIf="formSubmitted"
+                        [inputControl]="accountTransferForm.controls.originAccount" [fieldName]="'Origin Account'">
+                    </app-form-validation-messages>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Balance</mat-label>
+                        <input formControlName="availBalance" matInput readonly />
+                    </mat-form-field>
+                    <app-form-validation-messages *ngIf="formSubmitted"
+                        [inputControl]="accountTransferForm.controls.availBalance" [fieldName]="'Balance'">
+                    </app-form-validation-messages>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Destination Account</mat-label>
+                        <mat-error>Please select Destination Account</mat-error>
+                        <mat-select formControlName="destinationAccount">
+                            <mat-option *ngFor="let beneficiary of beneficiaryList" [value]="beneficiary.accountNumber">
+                                {{beneficiary.name}} - {{beneficiary.accountNumber}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <app-form-validation-messages *ngIf="formSubmitted"
+                        [inputControl]="accountTransferForm.controls.destinationAccount"
+                        [fieldName]="'Destination Account'">
+                    </app-form-validation-messages>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Amount</mat-label>
+                        <input formControlName="transferAmount" matInput />
+                    </mat-form-field>
+                    <app-form-validation-messages *ngIf="formSubmitted"
+                        [inputControl]="accountTransferForm.controls.transferAmount"
+                        [fieldName]="'Amount'">
+                    </app-form-validation-messages>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Comments</mat-label>
+                        <input formControlName="comments" matInput />
+                        <mat-error>Please enter comments</mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-footer class="m-0">
+                <button mat-stroked-button class="mr-24" type="button" (click)="goHome();"> Go Home </button>
+                <button mat-raised-button color="primary" type="button" (click)="transferAmount();"> Confirm </button>
+            </mat-card-footer>
+        </mat-card>
+    </form>
+    <div *ngIf="!loader && beneficiaryList.length === 0" class="flex v-align-c justify-center h-100">
+        <app-no-record-found></app-no-record-found>
+    </div>
+</div>

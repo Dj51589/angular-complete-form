@@ -1,1 +1,54 @@
-<p>landing works!</p>
+<div class="flex flex-column h-100 user-info-container">
+    <h2 class="text-center">Welcome {{userLoginInfo.user}}</h2>
+    <div class="user-detail flex flex-column">
+        <div class="flex flex-column">
+            <div class="user-info flex">
+                <label>
+                    Account No:
+                </label>
+                <div>{{userInfo.acountNumber}}</div>
+            </div>
+            <div class="user-info flex">
+                <label>
+                    Account Type:
+                </label>
+                <div>{{userInfo.accountType}}</div>
+            </div>
+            <div class="user-info flex">
+                <label>
+                    Balance
+                </label>
+                <div>{{userInfo.availBalance | currency}}</div>
+            </div>
+        </div>
+        <div class="flex h-100 justify-center statement table-container">
+            <h1 class="text-center">
+                Latest Transactions
+            </h1>
+            <table *ngIf="statements && statements.length > 0" class="text-center">
+                <tr>
+                    <th>Trans. Date</th>
+                    <th>Trans. ID</th>
+                    <th>Amount</th>
+                    <th>Comment</th>
+                </tr>
+                <tr *ngFor="let statement of statements">
+                    <td>
+                        {{statement.transDate | date:'yyyy-MM-dd'}}
+                    </td>
+                    <td>
+                        {{statement.transId}}
+                    </td>
+                    <td>
+                        {{statement.amount | currency}}
+                    </td>
+                    <td>
+                        {{statement.comment}}
+                    </td>
+                </tr>
+            </table>
+            <div *ngIf="!loader && statements.length === 0" class="flex v-align-c justify-center h-100">
+                <app-no-record-found></app-no-record-found>
+            </div>
+        </div>
+    </div>

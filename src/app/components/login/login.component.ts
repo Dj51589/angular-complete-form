@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { CookieService } from 'src/app/services/cookie.service';
 import { AppService } from 'src/app/services/app.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserLoginInfo } from 'src/app/constants/common-classes';
+import { ApiCallsService } from 'src/app/services/api-calls.service';
+import { URI } from 'src/app/constants/uri';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   formSubmitted = false;
   constructor(private cs: CookieService, private router: Router,
-    private appSvc: AppService, private fb: FormBuilder
+    private appSvc: AppService, private fb: FormBuilder, private remote: ApiCallsService
   ) { }
 
   ngOnInit(): void {
@@ -30,13 +33,23 @@ export class LoginComponent implements OnInit {
   validateUser = () => {
     this.formSubmitted = true;
     if (this.loginForm.valid) {
-      const authDetails = {
-        user: 'Dheeraj',
-        token: new Date().getTime()
-      }
-      this.cs.setCookie('authentication', JSON.stringify(authDetails));
-      this.appSvc.setAuthetication();
-      this.router.navigate(['/home']);
+      const userName = this.loginForm.controls['userId'].value;
+      this.remote
+        .send(URI.login, {
+          userid: userName
+        })
+        .subscribe(response => {
+          if (response) {
+            const authDetails: UserLoginInfo = {
+              user: userName,
+              token: new Date().getTime().toString()
+            }
+            this.appSvc.setAuthetication(authDetails);
+            this.router.navigate(['/home']);
+          }
+        }, (err) => {
+          alert('error');
+        })
     }
   }
 

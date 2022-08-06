@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { ErrorComponent } from './components/common/error/error.component';
 import { NoPageFoundComponent } from './components/common/no-page-found/no-page-found.component';
-import { DetailsComponent } from './components/details/details.component';
-import { HomeComponent } from './components/home/home.component';
+import { SuccessComponent } from './components/common/success/success.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { ListingComponent } from './components/listing/listing.component';
 import { LoginComponent } from './components/login/login.component';
+import { StatementsComponent } from './components/statements/statements.component';
+import { TransferFundComponent } from './components/transfer-fund/transfer-fund.component';
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: 'login',   component: LoginComponent},
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'listing', component: ListingComponent, canActivate: [AuthGuard] },
-  { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: LandingComponent, canActivate: [AuthGuard] },
+  { path: 'statements', component: StatementsComponent, canActivate: [AuthGuard] },
+  { path: 'success', component: SuccessComponent, canActivate: [AuthGuard] },
+  { path: 'error', component: ErrorComponent, canActivate: [AuthGuard] },
+  { path: 'transferfunds', component: TransferFundComponent, canActivate: [AuthGuard] },
   { path: '',   component: LandingComponent, canActivate: [AuthGuard]},
   { path: '**', component: NoPageFoundComponent },
 ];

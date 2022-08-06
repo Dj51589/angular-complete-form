@@ -1,10 +1,10 @@
 [
   {
     "request": {
-      "url": "/employeesList",
+      "url": "/login",
       "query": {},
       "post": null,
-      "method": "GET"
+      "method": "POST"
     },
     "response": {
       "status": 200,
@@ -12,12 +12,12 @@
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
       },
-      "file": "data/employees-response.json"
+      "file": "data/loginresponse.json"
     }
   },
   {
     "request": {
-      "url": "/gists/public",
+      "url": "/userInfo",
       "query": {},
       "post": null,
       "method": "GET"
@@ -28,7 +28,55 @@
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
       },
-      "file": "data/employees-response.json"
+      "file": "data/userInfo.json"
+    }
+  },
+  {
+    "request": {
+      "url": "/benefiecery",
+      "query": {},
+      "post": null,
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "file": "data/benefiecery.json"
+    }
+  },
+  {
+    "request": {
+      "url": "/statements",
+      "query": {},
+      "post": null,
+      "method": "GET"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "file": "data/statements.json"
+    }
+  },
+  {
+    "request": {
+      "url": "/transferAmount",
+      "query": {},
+      "post": null,
+      "method": "POST"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "file": "data/transferAmount.json"
     }
   }
 ]

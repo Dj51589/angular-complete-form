@@ -19,5 +19,13 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    it('user id invalid when empty', () => {
+      expect(component.loginForm.controls['userId'].valid).toBeFalsy();
+    });
+    it('password invalid when empty', () => {
+      expect(component.loginForm.controls['pwd'].valid).toBeFalsy();
+    });
   });
+
+
 });

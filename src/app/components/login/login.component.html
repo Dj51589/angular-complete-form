@@ -30,9 +30,8 @@
                         </div>
                         <div class="control flex flex-column">
                             <input type="password" formControlName="pwd" />
-                            <app-form-validation-messages *ngIf="formSubmitted" 
-                            [fieldName]="'Password'"
-                            [inputControl]="loginForm.controls.pwd">
+                            <app-form-validation-messages *ngIf="formSubmitted" [fieldName]="'Password'"
+                                [inputControl]="loginForm.controls.pwd">
                             </app-form-validation-messages>
                         </div>
                     </div>
@@ -42,7 +41,7 @@
         </div>
         <div class="login-action">
             <button (click)="validateUser();" mat-raised-button color="primary">Login</button>
-            <button (click)="signup();" mat-raised-button >Signup</button>
+            <button (click)="signup();" mat-raised-button>Signup</button>
         </div>
     </div>
 </div>

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Veena",
+        "accountType": "savings",
+        "accountNumber": "23123123123"
+    },
+    {
+        "name": "Saurabh",
+        "accountType": "current",
+        "accountNumber": "98798687678"
+    },
+    {
+        "name": "Mohhammad",
+        "accountType": "saving",
+        "accountNumber": "1231231231"
+    }
+]

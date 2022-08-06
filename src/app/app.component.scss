@@ -12,31 +12,25 @@
     height: 30px;
   }
   &.logined {
-    nav {
-      ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color: #333333;
+    justify-content: space-between;
+    .navigation {
+      .route-item {
+        margin: 0px 10px;
+        padding: 10px;
+        border: 1px solid transparent;
+        &.active {
+          border-bottom: 1px solid #dedede;
         }
-        
-        li {
-          float: left;
-        }
-        
-        li a {
-          display: block;
-          color: white;
-          text-align: center;
-          padding: 16px;
-          text-decoration: none;
-        }
-        
-        li a:hover {
-          background-color: #111111;
-        }
+      }
+    }
   }
+
+  .userinfo {
+    img {
+      height: 25px;
+      width: 25px;
+      margin-left: 10px;
+    }
   }
 }
 
